@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>¿Estás listo para vender en Amazon? · Richar</title>
+<meta name="description" content="Test de 2 minutos de Richar para saber si estás listo para vender en Amazon y por dónde empezar.">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://ricardocabrero.com/test/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="¿Estás listo para vender en Amazon?">
+<meta property="og:description" content="Test de 2 minutos de Richar para saber si estás listo para vender en Amazon y por dónde empezar.">
+<meta property="og:url" content="https://ricardocabrero.com/test/">
+<link rel="icon" href="../recursos/logo-amz-house.png">
+<link rel="apple-touch-icon" href="../recursos/logo-amz-house.png">
+<meta property="og:image" content="https://ricardocabrero.com/recursos/compartir.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@font-face{font-family:"Marca";src:url("../recursos/montserrat-latin.woff2") format("woff2");font-weight:100 900;font-display:swap}
+:root{--fondo:#000000;--tarjeta:#1A1A1A;--principal:#FFB800;--p:255,184,0;--acento:#E60000;--texto:#FFFFFF;--suave:#B8B8B8;--sobre-principal:#000000;--borde:#262626;--lado:20px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--fondo)}
+body{min-height:100vh;color:var(--texto);background:var(--fondo);font-family:"Marca",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+a{color:var(--principal)}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:2px solid var(--principal);outline-offset:3px}
+.cabecera{max-width:760px;margin:0 auto;padding:calc(18px + env(safe-area-inset-top)) var(--lado) 0}
+.cabecera img{width:58px;height:auto}
+main{max-width:760px;margin:0 auto;padding:22px var(--lado) 48px}
+.antetitulo{display:inline-block;margin-bottom:12px;padding:5px 12px;border:1px solid rgba(var(--p),.5);border-radius:999px;color:var(--principal);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:clamp(30px,8.4vw,48px);line-height:1.06;font-weight:900;letter-spacing:-.01em;text-transform:uppercase}
+h1 span,h2 span,h3 span{color:var(--principal);text-shadow:0 0 18px rgba(var(--p),.45)}
+.entradilla{margin-top:14px;color:var(--suave);font-size:18px}
+h2{margin:44px 0 14px;font-size:clamp(22px,5.6vw,28px);line-height:1.2;font-weight:900;text-transform:uppercase}
+h3{margin:0 0 8px;font-size:19px;line-height:1.3;font-weight:800}
+p+p{margin-top:12px}
+main ul,main ol{margin:12px 0 0 22px}
+main li+li{margin-top:8px}
+strong,b{color:#fff}
+.suave,.nota{color:var(--suave)}
+.nota{margin-top:12px;font-size:14px;line-height:1.5}
+.tarjeta{margin-top:16px;padding:20px;background:var(--tarjeta);border:1px solid var(--borde);border-radius:16px}
+.tarjeta>:first-child{margin-top:0}
+.aviso{margin-top:16px;padding:16px 18px;border-left:4px solid var(--principal);background:rgba(var(--p),.08);border-radius:0 12px 12px 0}
+.etiqueta{display:inline-block;margin-bottom:8px;color:var(--principal);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.numerada{list-style:none;margin:16px 0 0;padding:0;counter-reset:n}
+.numerada>li{position:relative;margin-top:14px;padding:18px 18px 18px 64px;background:var(--tarjeta);border:1px solid var(--borde);border-radius:16px;counter-increment:n}
+.numerada>li::before{content:counter(n);position:absolute;left:16px;top:16px;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--principal);color:var(--sobre-principal);font-weight:900;font-size:16px}
+.texto-copiar{margin-top:12px;padding:16px;background:#0b0b0b;border:1px dashed #3a3a3a;border-radius:12px;font-size:15px;line-height:1.6;white-space:pre-wrap}
+.boton,.copiar{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 22px;border:0;border-radius:12px;background:var(--principal);color:var(--sobre-principal);font:inherit;font-size:16px;font-weight:900;letter-spacing:.02em;text-decoration:none;text-transform:uppercase;cursor:pointer;box-shadow:0 0 24px rgba(var(--p),.35)}
+.copiar{min-height:42px;margin-top:10px;padding:8px 16px;font-size:14px;box-shadow:none}
+.boton.secundario,.copiar.hecho{background:transparent;color:var(--principal);border:2px solid var(--principal);box-shadow:none}
+label{display:block;margin:14px 0 6px;font-weight:700;font-size:15px}
+input[type=number],input[type=text],select{width:100%;min-height:48px;padding:10px 14px;background:#0b0b0b;color:var(--texto);border:1px solid #3a3a3a;border-radius:10px;font:inherit;font-size:17px}
+input:focus,select:focus{border-color:var(--principal);outline:none}
+.casilla{display:flex;gap:12px;align-items:flex-start;margin-top:10px;padding:14px 16px;background:var(--tarjeta);border:1px solid var(--borde);border-radius:12px;cursor:pointer;font-weight:400}
+.casilla input{flex:none;width:22px;height:22px;margin-top:3px;accent-color:var(--principal)}
+table{width:100%;margin-top:14px;border-collapse:collapse;font-size:15px}
+th,td{padding:10px 8px;border-bottom:1px solid var(--borde);text-align:left;vertical-align:top}
+th{color:var(--suave);font-size:13px;text-transform:uppercase;letter-spacing:.05em}
+.cierre-pagina{margin-top:52px;padding:28px 22px;text-align:center;background:linear-gradient(180deg,rgba(var(--p),.10),rgba(var(--p),0));border:1px solid rgba(var(--p),.4);border-radius:20px}
+.cierre-pagina h2{margin-top:0}
+.cierre-pagina p{color:var(--suave)}
+.cierre-pagina .boton{margin-top:18px}
+footer{padding:36px var(--lado) calc(36px + env(safe-area-inset-bottom));border-top:1px solid #1d1d1d;color:#777;font-size:12px;line-height:1.9;text-align:center}
+footer img{width:64px;height:auto;margin:0 auto 10px;opacity:.9}
+.pie-marca{max-width:330px;margin:0 auto 14px;color:var(--suave);font-size:14px;line-height:1.5}
+footer a{color:#9a9a9a}
+@media (min-width:700px){:root{--lado:32px}main{padding-top:34px}}
+@media print{.cabecera,.cierre-pagina,.copiar,footer{display:none}body,html{background:#fff;color:#000}.tarjeta,.numerada>li,.texto-copiar{background:#fff;border-color:#bbb;break-inside:avoid}strong,b{color:#000}}
+</style>
+</head>
+<body>
+<header class="cabecera"><a href="../"><img src="../recursos/logo-amz-house.png" alt="AMZ House" width="58" height="58"></a></header>
+<main>
+<p class="antetitulo">Gratis · Test de 2 minutos</p><h1>¿Estás listo para vender en <span>Amazon</span>?</h1>
+<p class="entradilla">10 preguntas. Contesta lo que es, no lo que te gustaría. Al final te digo por dónde empezar.</p>
+<style>
+.test{margin-top:26px}
+.test [hidden]{display:none!important}
+.test-cabeza{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px}
+.test-contador{color:var(--suave);font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.test-atras{min-height:44px;padding:8px 14px;border:1px solid #3a3a3a;border-radius:10px;background:transparent;color:var(--texto);font:inherit;font-size:14px;font-weight:700;cursor:pointer;touch-action:manipulation}
+.test-atras[disabled]{visibility:hidden}
+.test-barra{height:8px;margin-top:8px;background:#262626;border-radius:999px;overflow:hidden}
+.test-barra span{display:block;width:10%;height:100%;background:var(--principal);border-radius:999px;box-shadow:0 0 12px rgba(var(--p),.6);transition:width .25s ease}
+.test-pregunta{margin:26px 0 6px;font-size:clamp(21px,5.8vw,28px)}
+.test-pregunta:focus,.test-titular h2:focus{outline:none}
+.test-ayuda{color:var(--suave);font-size:15px;line-height:1.5}
+.test-opciones{display:grid;gap:10px;margin-top:18px}
+.test-opcion{display:flex;align-items:center;gap:14px;width:100%;min-height:60px;padding:14px 16px;background:var(--tarjeta);border:1px solid #3a3a3a;border-radius:14px;color:var(--texto);font:inherit;font-size:16px;font-weight:700;line-height:1.35;text-align:left;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;transition:border-color .15s,background-color .15s}
+.test-letra{flex:none;display:grid;place-items:center;width:32px;height:32px;border:2px solid var(--principal);border-radius:50%;color:var(--principal);font-size:14px;font-weight:900}
+.test-opcion:active,.test-opcion[aria-pressed="true"]{border-color:var(--principal);background:rgba(var(--p),.12)}
+.test-opcion[aria-pressed="true"] .test-letra{background:var(--principal);color:var(--sobre-principal)}
+@media (hover:hover){.test-opcion:hover,.test-atras:hover{border-color:var(--principal)}}
+.test-privado{margin-top:18px}
+.test-titular{padding:26px 20px 22px;text-align:center;border:1px solid rgba(var(--p),.5);border-radius:20px;background:linear-gradient(180deg,rgba(var(--p),.14),rgba(var(--p),.02))}
+.test-titular .etiqueta{margin-bottom:0}
+.test-titular h2{margin:8px 0 10px;font-size:clamp(26px,7.6vw,38px);line-height:1.12}
+.test-puntos{color:var(--suave);font-size:14px;font-weight:700}
+.test-significado{margin-top:20px}
+.test-resultado h3{margin-top:30px}
+.test-resultado .tarjeta h3,.test-resultado .aviso h3{margin-top:0}
+.test-pieza h3{font-size:22px;text-transform:uppercase}
+.test-lista{list-style:none;margin:12px 0 0!important;padding:0}
+.test-lista li{margin-top:10px;padding:14px 16px;background:var(--tarjeta);border:1px solid var(--borde);border-radius:12px}
+.test-resultado .numerada a{font-weight:700;white-space:nowrap}
+.test-recurso .boton{margin-top:14px}
+.test-comparte{margin-top:34px}
+.test-repetir{width:100%;margin-top:28px}
+</style>
+
+<section class="test" aria-label="Test: ¿estás listo para vender en Amazon?">
+  <p class="aviso" id="test-sin-js">Si ves este mensaje, el test no ha cargado. Recarga la página. Si estás en Instagram y sigue sin salir, toca los tres puntos de arriba y ábrela en tu navegador (Chrome o Safari).</p>
+
+  <div id="test-app" hidden>
+    <div id="test-preguntas">
+      <div class="test-cabeza">
+        <p class="test-contador" id="test-contador">Pregunta 1 de 10</p>
+        <button type="button" class="test-atras" id="test-atras" disabled>&larr; Atrás</button>
+      </div>
+      <div class="test-barra" id="test-barra" role="progressbar" aria-label="Progreso del test" aria-valuemin="1" aria-valuemax="10" aria-valuenow="1"><span id="test-relleno"></span></div>
+      <h2 class="test-pregunta" id="test-pregunta" tabindex="-1"></h2>
+      <p class="test-ayuda" id="test-ayuda"></p>
+      <div class="test-opciones" id="test-opciones" role="group" aria-labelledby="test-pregunta"></div>
+      <p class="nota test-privado">No te pido ni nombre ni correo. Tus respuestas no se envían ni se guardan.</p>
+    </div>
+
+    <div class="test-resultado" id="test-resultado" hidden>
+      <div class="test-titular">
+        <p class="etiqueta">Tu resultado</p>
+        <h2 id="test-nombre" tabindex="-1"></h2>
+        <p class="test-puntos" id="test-puntos"></p>
+      </div>
+
+      <div class="test-significado" id="test-significado"></div>
+
+      <div class="aviso" id="test-rapido" hidden>
+        <p class="etiqueta">Sin rodeos</p>
+        <p>Has elegido «dinero serio en semanas». Te lo digo con respeto: Amazon no funciona así. Los primeros meses son para invertir y aprender, no para cobrar.</p>
+        <p>Si buscas dinero rápido, aquí te vas a frustrar. Si cambias el plazo, el resto de este resultado sí te sirve.</p>
+      </div>
+
+      <div id="test-flojos"></div>
+
+      <h3>Tus 3 siguientes pasos</h3>
+      <ol class="numerada" id="test-pasos"></ol>
+      <p class="nota" id="test-extra" hidden></p>
+
+      <div class="tarjeta test-recurso">
+        <p class="etiqueta">Tu recurso gratis</p>
+        <h3 id="test-recurso-titulo"></h3>
+        <p class="suave" id="test-recurso-texto"></p>
+        <a class="boton" id="test-recurso-enlace" href="../mapa/">Ver el recurso</a>
+      </div>
+
+      <div class="test-comparte">
+        <div class="aviso">
+          <p><strong>Cuéntame en los comentarios del reel qué te ha salido.</strong> Y si te atreves, cuál es tu punto flojo.</p>
+        </div>
+        <h3>Compártelo</h3>
+        <p class="suave">Copia el texto y pásaselo a quien esté pensando en vender en Amazon.</p>
+        <p class="texto-copiar" id="test-compartir"></p>
+        <button type="button" class="copiar" data-copiar="test-compartir">Copiar el texto</button>
+      </div>
+
+      <button type="button" class="boton secundario test-repetir" id="test-repetir">Repetir el test</button>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  "use strict";
+
+  /* Cada respuesta suma de 0 a 3 puntos (máximo 30). «critica»: si la respuesta vale 0 en una de estas, falta una
+     pieza básica. «consejo»: sale en «tus puntos flojos» (lo llevan todas las respuestas de 0 o 1 punto). */
+  var PREGUNTAS = [
+    { pieza: "Tiempo", critica: true,
+      texto: "¿Cuánto tiempo real tienes a la semana?",
+      ayuda: "Quitando trabajo, familia y descanso.",
+      opciones: [
+        { texto: "Menos de 3 horas", puntos: 0, consejo: "Con menos de 3 horas a la semana no da para aprender y ejecutar a la vez. Antes de empezar, saca un hueco fijo en tu calendario." },
+        { texto: "De 3 a 6 horas", puntos: 1, consejo: "Con 3 a 6 horas se puede, pero sin desperdiciar ni una: ratos fijos en el calendario y una sola tarea cada vez." },
+        { texto: "De 7 a 12 horas", puntos: 2 },
+        { texto: "Más de 12 horas", puntos: 3 }
+      ] },
+    { pieza: "Colchón de dinero", critica: true,
+      texto: "¿Cuánto dinero puedes arriesgar sin perder el sueño?",
+      ayuda: "Dinero que, si se pierde, no pone en riesgo tus facturas. Si piensas en dólares, la cifra vale igual.",
+      opciones: [
+        { texto: "Ahora mismo, nada", puntos: 0, consejo: "Sin dinero que puedas arriesgar, no compres stock. Empieza por un camino de poca inversión y ve ahorrando un colchón aparte. Y nunca con dinero prestado." },
+        { texto: "Menos de 1.000 €", puntos: 1, consejo: "Con poco colchón, cada error duele el doble. Elige un camino de poca inversión y no metas todo en el primer pedido." },
+        { texto: "Entre 1.000 y 3.000 €", puntos: 2 },
+        { texto: "Más de 3.000 €", puntos: 3 }
+      ] },
+    { pieza: "Expectativas", critica: true,
+      texto: "¿Qué esperas conseguir, y en cuánto tiempo?",
+      ayuda: "",
+      opciones: [
+        { texto: "Dinero serio cuanto antes: en semanas, no en años", puntos: 0, rapido: true, consejo: "Cambia el plazo antes de gastar un euro: piensa en años, no en semanas." },
+        { texto: "Un sueldo completo en 2 o 3 meses", puntos: 1, consejo: "Un sueldo en 2 o 3 meses es mucho pedir para empezar. Ponte metas por pasos: aprender, la primera venta y después crecer." },
+        { texto: "Un ingreso extra que crezca poco a poco, en un año o más", puntos: 3 },
+        { texto: "Construir una marca propia, aunque me lleve años", puntos: 3 }
+      ] },
+    { pieza: "Ordenador", critica: true,
+      texto: "¿Qué tal te manejas con el ordenador?",
+      ayuda: "Correo, carpetas y hojas de cálculo.",
+      opciones: [
+        { texto: "Casi todo lo hago con el móvil y el correo me cuesta", puntos: 0, consejo: "Amazon se lleva desde el ordenador: el panel de vendedor, el correo con proveedores y las hojas de cálculo. Ponte al día con lo básico antes de empezar: es lo más barato que vas a aprender." },
+        { texto: "Lo básico: correo y buscar en internet", puntos: 1, consejo: "Te falta soltura con las hojas de cálculo. Aprende a sumar, restar y sacar porcentajes: con eso harás tus números." },
+        { texto: "Bien: correo, carpetas y alguna hoja de cálculo sencilla", puntos: 2 },
+        { texto: "Con soltura: fórmulas y herramientas nuevas sin miedo", puntos: 3 }
+      ] },
+    { pieza: "Inglés", critica: false,
+      texto: "¿Qué tal tu inglés para hablar con un proveedor?",
+      ayuda: "",
+      opciones: [
+        { texto: "Casi nada", puntos: 1, consejo: "La IA te traduce los correos al proveedor, pero no te fíes a ciegas: aprende lo básico para entender lo que te contestan." },
+        { texto: "Lo básico, con ayuda del traductor o de la IA", puntos: 2 },
+        { texto: "Me defiendo bien escribiendo", puntos: 3 }
+      ] },
+    { pieza: "Producto", critica: false,
+      texto: "¿Tienes ya una idea de producto?",
+      ayuda: "",
+      opciones: [
+        { texto: "No, todavía no sé qué vender", puntos: 1, consejo: "No tener producto es normal. Lo que no es normal es elegirlo a ojo: aprende a buscarlo con datos antes de enamorarte de ninguno." },
+        { texto: "Tengo una idea, pero no la he comprobado", puntos: 1, consejo: "Una idea sin comprobar es una apuesta. Pásala por números y por las 15 preguntas antes de pagar nada." },
+        { texto: "Tengo una idea y he mirado competencia y precios", puntos: 3 },
+        { texto: "Ya vendo o he vendido algo en Amazon", puntos: 3 }
+      ] },
+    { pieza: "Forma de aprender", critica: true,
+      texto: "Cuando aprendes algo nuevo, ¿qué haces?",
+      ayuda: "",
+      opciones: [
+        { texto: "Necesito que alguien me lo dé hecho", puntos: 0, consejo: "Nadie va a montar tu negocio por ti: ni yo, ni un curso, ni una herramienta. Si no vas a hacerlo tú, mejor no empieces." },
+        { texto: "Veo vídeos, pero me cuesta pasar a la acción", puntos: 1, consejo: "Ver vídeos no es avanzar. Por cada cosa que aprendas, haz una tarea ese mismo día, aunque sea pequeña." },
+        { texto: "Pruebo, me equivoco y pregunto cuando me atasco", puntos: 3 }
+      ] },
+    { pieza: "Paciencia", critica: true,
+      texto: "6 meses invirtiendo y aún sin beneficio. ¿Qué haces?",
+      ayuda: "Has puesto tiempo y dinero, y todavía no recuperas nada.",
+      opciones: [
+        { texto: "Lo dejo: si no da dinero pronto, no es para mí", puntos: 0, consejo: "Los primeros meses son para invertir y aprender, no para cobrar. Si no puedes aguantar eso, hoy no es tu momento." },
+        { texto: "Me agobio y empiezo a buscar otra cosa", puntos: 1, consejo: "Cambiar de idea cada vez que algo tarda es la forma más cara de no avanzar. Decide desde el principio cuánto tiempo le das antes de juzgarlo." },
+        { texto: "Me cuesta, pero sigo si veo que avanzo", puntos: 2 },
+        { texto: "Lo veo normal: montar algo propio lleva tiempo", puntos: 3 }
+      ] },
+    { pieza: "Cabeza fría", critica: true,
+      texto: "Algo sale mal en Amazon. ¿Cómo reaccionas?",
+      ayuda: "Por ejemplo: un pedido llega roto o te bloquean un producto.",
+      opciones: [
+        { texto: "Me bloqueo y pienso en dejarlo", puntos: 0, consejo: "En Amazon, tarde o temprano, algo sale mal. Practica una regla: primero respiras, luego buscas la causa y luego actúas." },
+        { texto: "Me enfado y espero a que se arregle solo", puntos: 1, consejo: "En Amazon casi nada se arregla solo. Cuando algo falle, busca la causa y da un paso ese mismo día, aunque sea preguntar." },
+        { texto: "Me agobio, pero busco ayuda y lo arreglo", puntos: 2 },
+        { texto: "Respiro, busco la causa y lo soluciono paso a paso", puntos: 3 }
+      ] },
+    { pieza: "Apoyo", critica: false,
+      texto: "¿Con quién vas a hacerlo?",
+      ayuda: "",
+      opciones: [
+        { texto: "Solo, y sin nadie con quien hablarlo", puntos: 1, consejo: "Solo se puede, pero cuesta más. Rodéate de gente que esté en lo mismo, para preguntar y no atascarte." },
+        { texto: "Solo, pero en casa me apoyan", puntos: 2 },
+        { texto: "Con alguien (pareja, socio o amigo), con las tareas repartidas", puntos: 3 }
+      ] }
+  ];
+
+  var RESULTADOS = {
+    cimientos: {
+      nombre: "Todavía no: primero los cimientos",
+      partes: ["Todavía no: ", "primero los cimientos"],
+      significado: [
+        "Hoy no te recomiendo meter dinero en Amazon. No es un «no» para siempre: es un «todavía no».",
+        "Te faltan piezas básicas, y casi todas se arreglan sin gastar dinero. Ponlas primero y empezarás con calma, no con prisas."
+      ],
+      tituloFlojos: "Tus cimientos, por este orden",
+      pasos: [
+        { titulo: "Arregla tus puntos flojos.", texto: "En el orden de arriba, uno cada vez y con fecha en el calendario." },
+        { titulo: "Elige tu camino.", texto: "Mira los 3 caminos para empezar y quédate con el que pide menos dinero y menos tiempo. Solo mirar: no compres nada todavía.", enlaces: [{ texto: "Ver los 3 caminos", href: "../mapa/" }] },
+        { titulo: "Aprende los errores gratis.", texto: "Lee los 5 errores que arruinan una cuenta. Aprenderlos ahora no cuesta nada; aprenderlos después, sí.", enlaces: [{ texto: "Ver los 5 errores", href: "../errores/" }] }
+      ],
+      extra: "Repite el test dentro de 3 meses y compara.",
+      recurso: { titulo: "3 caminos para empezar en Amazon", texto: "No hay un solo camino. Elige el tuyo según el dinero y el tiempo que tienes hoy.", boton: "Ver los 3 caminos", href: "../mapa/" }
+    },
+    casi: {
+      nombre: "Casi: te falta una pieza",
+      partes: ["Casi: ", "te falta una pieza"],
+      significado: [
+        "Tienes buena base, pero te falta una pieza. Y empezar sin ella te puede salir caro.",
+        "La buena noticia: es una sola. Arréglala antes de pagar a un proveedor y empezarás con mucho más a tu favor."
+      ],
+      tituloFlojos: "La pieza que te falta",
+      pasos: [
+        { titulo: "Pon la pieza que falta.", texto: "La tienes justo arriba. Ponle fecha: este mes, no «cuando pueda»." },
+        { titulo: "Haz números de verdad.", texto: "Coge un producto real y calcula lo que te queda por venta, con tarifas, publicidad y devoluciones.", enlaces: [{ texto: "Abrir la calculadora", href: "../calculadora/" }] },
+        { titulo: "Filtra antes de pagar.", texto: "Pasa tu producto por las 15 preguntas antes de pagar ningún stock. Si fallan varias, no compres.", enlaces: [{ texto: "Ver las 15 preguntas", href: "../checklist/" }] }
+      ],
+      extra: "",
+      recurso: { titulo: "15 preguntas antes de comprar tu primer stock", texto: "Si no puedes contestar «sí» a casi todas, todavía no es momento de pagar al proveedor.", boton: "Ver las 15 preguntas", href: "../checklist/" }
+    },
+    listo: {
+      nombre: "Listo para empezar",
+      partes: ["Listo para ", "empezar"],
+      significado: [
+        "Tienes tiempo, colchón y cabeza para aguantar los primeros meses. Eso no te garantiza nada, pero te pone en la salida con lo necesario.",
+        "Ahora lo importante es ejecutar con estrategia: empieza pequeño, con números reales y sin saltarte pasos."
+      ],
+      tituloFlojos: "Lo único que vigilaría",
+      pasos: [
+        { titulo: "Números primero.", texto: "Elige un producto y calcula lo que de verdad te queda por venta, con los costes que casi nadie suma.", enlaces: [{ texto: "Abrir la calculadora", href: "../calculadora/" }] },
+        { titulo: "Filtra antes de pagar.", texto: "Pasa el producto por las 15 preguntas antes del primer pedido. Si fallan varias, busca otro.", enlaces: [{ texto: "Ver las 15 preguntas", href: "../checklist/" }] },
+        { titulo: "Lanza sin regalar errores.", texto: "Lee los 5 errores que arruinan una cuenta y escribe tu ficha con los 10 prompts.", enlaces: [{ texto: "Ver los 5 errores", href: "../errores/" }, { texto: "Ver los 10 prompts", href: "../prompts/" }] }
+      ],
+      extra: "",
+      recurso: { titulo: "Calculadora de rentabilidad FBA", texto: "Mete tus números y mira lo que de verdad te queda por cada venta, con los costes que casi nadie suma.", boton: "Abrir la calculadora", href: "../calculadora/" }
+    }
+  };
+
+  var MAXIMO = 0;
+  PREGUNTAS.forEach(function (p) {
+    var mayor = 0;
+    p.opciones.forEach(function (o) { if (o.puntos > mayor) mayor = o.puntos; });
+    MAXIMO += mayor;
+  });
+  var LISTO_DESDE = 23;   /* de 30 */
+  var CASI_DESDE = 15;    /* de 30 */
+
+  /* respuestas: el número de opción elegida en cada pregunta (0 = la primera). */
+  function evaluar(respuestas) {
+    if (!respuestas || respuestas.length !== PREGUNTAS.length) throw new Error("Faltan respuestas");
+    var total = 0, ceros = 0, rapido = false, flojos = [];
+    PREGUNTAS.forEach(function (p, i) {
+      var o = p.opciones[respuestas[i]];
+      if (!o) throw new Error("Respuesta no válida en la pregunta " + (i + 1));
+      total += o.puntos;
+      if (o.rapido) rapido = true;
+      var cero = p.critica && o.puntos === 0;
+      if (cero) ceros++;
+      if (o.consejo) flojos.push({ pieza: p.pieza, consejo: o.consejo, puntos: o.puntos, critica: p.critica, cero: cero, orden: i });
+    });
+    flojos.sort(function (a, b) {
+      return (b.cero - a.cero) || (a.puntos - b.puntos) || (b.critica - a.critica) || (a.orden - b.orden);
+    });
+    var clave;
+    if (ceros >= 2 || total < CASI_DESDE) clave = "cimientos";
+    else if (ceros === 1 || total < LISTO_DESDE) clave = "casi";
+    else clave = "listo";
+    return { clave: clave, total: total, maximo: MAXIMO, ceros: ceros, rapido: rapido, flojos: flojos };
+  }
+
+  var api = { PREGUNTAS: PREGUNTAS, RESULTADOS: RESULTADOS, evaluar: evaluar, MAXIMO: MAXIMO };
+  if (typeof module === "object" && module && module.exports) module.exports = api;
+  if (typeof document === "undefined") return;
+
+  /* ---------- Pantalla ---------- */
+  var $ = function (id) { return document.getElementById(id); };
+  var aviso = $("test-sin-js"), app = $("test-app");
+  var respuestas = [], actual = 0, bloqueado = false;
+  var LETRAS = ["A", "B", "C", "D"];
+
+  function fallo() {
+    aviso.textContent = "Algo ha fallado en el test. Recarga la página. Si estás en Instagram y sigue igual, toca los tres puntos de arriba y ábrela en tu navegador (Chrome o Safari).";
+    aviso.hidden = false;
+    app.hidden = true;
+  }
+
+  function nuevo(etiqueta, clase, texto) {
+    var el = document.createElement(etiqueta);
+    if (clase) el.className = clase;
+    if (texto) el.textContent = texto;
+    return el;
+  }
+
+  function subir(enfocar) {
+    var arriba = app.getBoundingClientRect().top;
+    if (arriba < 0 || arriba > window.innerHeight * 0.6) window.scrollTo(0, window.pageYOffset + arriba - 12);
+    try { enfocar.focus({ preventScroll: true }); } catch (e) { enfocar.focus(); }
+  }
+
+  function pintarPregunta(enfocar) {
+    var p = PREGUNTAS[actual], n = PREGUNTAS.length;
+    $("test-contador").textContent = "Pregunta " + (actual + 1) + " de " + n;
+    $("test-relleno").style.width = ((actual + 1) / n * 100) + "%";
+    var barra = $("test-barra");
+    barra.setAttribute("aria-valuenow", String(actual + 1));
+    barra.setAttribute("aria-valuetext", "Pregunta " + (actual + 1) + " de " + n);
+    $("test-atras").disabled = actual === 0;
+    $("test-pregunta").textContent = p.texto;
+    var ayuda = $("test-ayuda");
+    ayuda.textContent = p.ayuda || "";
+    ayuda.hidden = !p.ayuda;
+    var caja = $("test-opciones");
+    while (caja.firstChild) caja.removeChild(caja.firstChild);
+    p.opciones.forEach(function (o, i) {
+      var b = nuevo("button", "test-opcion");
+      b.type = "button";
+      b.setAttribute("aria-pressed", respuestas[actual] === i ? "true" : "false");
+      var letra = nuevo("span", "test-letra", LETRAS[i]);
+      letra.setAttribute("aria-hidden", "true");
+      b.appendChild(letra);
+      b.appendChild(nuevo("span", "", o.texto));
+      b.addEventListener("click", function () { elegir(i); });
+      caja.appendChild(b);
+    });
+    if (enfocar) subir($("test-pregunta"));
+  }
+
+  function elegir(i) {
+    if (bloqueado) return;
+    bloqueado = true;
+    respuestas[actual] = i;
+    var botones = $("test-opciones").children;
+    for (var k = 0; k < botones.length; k++) botones[k].setAttribute("aria-pressed", k === i ? "true" : "false");
+    setTimeout(function () {
+      try {
+        if (actual < PREGUNTAS.length - 1) { actual++; pintarPregunta(true); }
+        else mostrarResultado();
+      } catch (e) { fallo(); }
+      setTimeout(function () { bloqueado = false; }, 250);
+    }, 180);
+  }
+
+  function lista(flojos) {
+    var ul = nuevo("ul", "test-lista");
+    flojos.forEach(function (f) {
+      var li = nuevo("li");
+      li.appendChild(nuevo("strong", "", f.pieza + ". "));
+      li.appendChild(document.createTextNode(f.consejo));
+      ul.appendChild(li);
+    });
+    return ul;
+  }
+
+  function pintarFlojos(r, datos) {
+    var caja = $("test-flojos");
+    while (caja.firstChild) caja.removeChild(caja.firstChild);
+    var flojos = r.flojos;
+    if (r.clave === "casi") {
+      var pieza = nuevo("div", "tarjeta test-pieza");
+      pieza.appendChild(nuevo("p", "etiqueta", datos.tituloFlojos));
+      var h = nuevo("h3");
+      h.appendChild(nuevo("span", "", flojos[0].pieza));
+      pieza.appendChild(h);
+      pieza.appendChild(nuevo("p", "", flojos[0].consejo));
+      caja.appendChild(pieza);
+      if (flojos.length > 1) {
+        caja.appendChild(nuevo("h3", "", "También vigilaría"));
+        caja.appendChild(lista(flojos.slice(1, 3)));
+      }
+    } else if (flojos.length) {
+      caja.appendChild(nuevo("h3", "", datos.tituloFlojos));
+      caja.appendChild(lista(flojos.slice(0, 3)));
+    } else {
+      caja.appendChild(nuevo("h3", "", "Tus puntos flojos"));
+      caja.appendChild(nuevo("p", "", "No veo ningún punto flojo claro. No te falta preparación: te falta empezar."));
+    }
+  }
+
+  function mostrarResultado() {
+    var r = evaluar(respuestas), d = RESULTADOS[r.clave];
+    var nombre = $("test-nombre");
+    while (nombre.firstChild) nombre.removeChild(nombre.firstChild);
+    if (d.partes[0]) nombre.appendChild(document.createTextNode(d.partes[0]));
+    nombre.appendChild(nuevo("span", "", d.partes[1]));
+    $("test-puntos").textContent = "Has sacado " + r.total + " de " + r.maximo + " puntos";
+
+    var sig = $("test-significado");
+    while (sig.firstChild) sig.removeChild(sig.firstChild);
+    d.significado.forEach(function (t) { sig.appendChild(nuevo("p", "", t)); });
+
+    $("test-rapido").hidden = !r.rapido;
+    pintarFlojos(r, d);
+
+    var pasos = $("test-pasos");
+    while (pasos.firstChild) pasos.removeChild(pasos.firstChild);
+    d.pasos.forEach(function (p) {
+      var li = nuevo("li");
+      li.appendChild(nuevo("strong", "", p.titulo));
+      li.appendChild(document.createTextNode(" " + p.texto));
+      (p.enlaces || []).forEach(function (e) {
+        li.appendChild(document.createTextNode(" "));
+        var a = nuevo("a", "", e.texto + " →");
+        a.href = e.href;
+        li.appendChild(a);
+      });
+      pasos.appendChild(li);
+    });
+    var extra = $("test-extra");
+    extra.textContent = d.extra || "";
+    extra.hidden = !d.extra;
+
+    $("test-recurso-titulo").textContent = d.recurso.titulo;
+    $("test-recurso-texto").textContent = d.recurso.texto;
+    var enlace = $("test-recurso-enlace");
+    enlace.textContent = d.recurso.boton;
+    enlace.href = d.recurso.href;
+
+    $("test-compartir").textContent = "Me ha salido «" + d.nombre + "» en el test de Richar. Hazlo tú: ricardocabrero.com/test";
+
+    $("test-preguntas").hidden = true;
+    $("test-resultado").hidden = false;
+    subir(nombre);
+  }
+
+  function repetir() {
+    respuestas = [];
+    actual = 0;
+    $("test-resultado").hidden = true;
+    $("test-preguntas").hidden = false;
+    pintarPregunta(true);
+  }
+
+  try {
+    $("test-atras").addEventListener("click", function () {
+      if (bloqueado || actual === 0) return;
+      try { actual--; pintarPregunta(true); } catch (e) { fallo(); }
+    });
+    $("test-repetir").addEventListener("click", function () {
+      try { repetir(); } catch (e) { fallo(); }
+    });
+    pintarPregunta(false);
+    app.hidden = false;
+    aviso.hidden = true;
+  } catch (e) {
+    fallo();
+  }
+})();
+</script>
+
+<section class="cierre-pagina"><h2>¿Quieres el <span>método</span> completo?</h2><p>Entra gratis en la comunidad de AMZ House en WhatsApp. Te cuento lo nuevo de Amazon, el caso de Jorge desde cero y te aviso antes que a nadie cuando abramos Skool. Gratis para siempre.</p><a class="boton" href="https://chat.whatsapp.com/F5Jk8Qgy9gPIKp6BcHsnVD">Entrar gratis</a></section>
+</main>
+<footer><img src="../recursos/logo-amz-house.png" alt="AMZ House" width="120" height="120" loading="lazy"><p class="pie-marca">Mi comunidad para aprender a vender en Amazon, con la IA dentro del método y sin humo.</p><p>© 2026 Richar · AMZ House · Esta página no usa cookies</p><p><a href="../aviso-legal/">Aviso legal</a> · <a href="../politica-de-privacidad/">Privacidad</a> · <a href="../politica-de-cookies/">Cookies</a></p></footer>
+<script>
+document.querySelectorAll("[data-copiar]").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var t = document.getElementById(b.getAttribute("data-copiar"));
+    if (!t) return;
+    var texto = t.innerText.trim(), antes = b.textContent;
+    function hecho() { b.textContent = "¡Copiado!"; b.classList.add("hecho"); setTimeout(function () { b.textContent = antes; b.classList.remove("hecho"); }, 1800); }
+    if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(texto).then(hecho, function () { window.prompt("Copia el texto:", texto); }); }
+    else { window.prompt("Copia el texto:", texto); }
+  });
+});
+</script>
+</body>
+</html>

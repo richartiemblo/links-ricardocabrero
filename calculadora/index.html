@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calculadora de rentabilidad FBA · Richar</title>
+<meta name="description" content="Calcula el beneficio real por unidad de un producto en Amazon FBA (España): IVA, tarifas, publicidad, devoluciones e inversión.">
+<meta name="theme-color" content="#000000">
+<link rel="canonical" href="https://ricardocabrero.com/calculadora/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calculadora de rentabilidad FBA">
+<meta property="og:description" content="Calcula el beneficio real por unidad de un producto en Amazon FBA (España): IVA, tarifas, publicidad, devoluciones e inversión.">
+<meta property="og:url" content="https://ricardocabrero.com/calculadora/">
+<link rel="icon" href="../recursos/logo-amz-house.png">
+<link rel="apple-touch-icon" href="../recursos/logo-amz-house.png">
+<meta property="og:image" content="https://ricardocabrero.com/recursos/compartir.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@font-face{font-family:"Marca";src:url("../recursos/montserrat-latin.woff2") format("woff2");font-weight:100 900;font-display:swap}
+:root{--fondo:#000000;--tarjeta:#1A1A1A;--principal:#FFB800;--p:255,184,0;--acento:#E60000;--texto:#FFFFFF;--suave:#B8B8B8;--sobre-principal:#000000;--borde:#262626;--lado:20px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--fondo)}
+body{min-height:100vh;color:var(--texto);background:var(--fondo);font-family:"Marca",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+a{color:var(--principal)}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:2px solid var(--principal);outline-offset:3px}
+.cabecera{max-width:760px;margin:0 auto;padding:calc(18px + env(safe-area-inset-top)) var(--lado) 0}
+.cabecera img{width:58px;height:auto}
+main{max-width:760px;margin:0 auto;padding:22px var(--lado) 48px}
+.antetitulo{display:inline-block;margin-bottom:12px;padding:5px 12px;border:1px solid rgba(var(--p),.5);border-radius:999px;color:var(--principal);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+h1{font-size:clamp(30px,8.4vw,48px);line-height:1.06;font-weight:900;letter-spacing:-.01em;text-transform:uppercase}
+h1 span,h2 span,h3 span{color:var(--principal);text-shadow:0 0 18px rgba(var(--p),.45)}
+.entradilla{margin-top:14px;color:var(--suave);font-size:18px}
+h2{margin:44px 0 14px;font-size:clamp(22px,5.6vw,28px);line-height:1.2;font-weight:900;text-transform:uppercase}
+h3{margin:0 0 8px;font-size:19px;line-height:1.3;font-weight:800}
+p+p{margin-top:12px}
+main ul,main ol{margin:12px 0 0 22px}
+main li+li{margin-top:8px}
+strong,b{color:#fff}
+.suave,.nota{color:var(--suave)}
+.nota{margin-top:12px;font-size:14px;line-height:1.5}
+.tarjeta{margin-top:16px;padding:20px;background:var(--tarjeta);border:1px solid var(--borde);border-radius:16px}
+.tarjeta>:first-child{margin-top:0}
+.aviso{margin-top:16px;padding:16px 18px;border-left:4px solid var(--principal);background:rgba(var(--p),.08);border-radius:0 12px 12px 0}
+.etiqueta{display:inline-block;margin-bottom:8px;color:var(--principal);font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.numerada{list-style:none;margin:16px 0 0;padding:0;counter-reset:n}
+.numerada>li{position:relative;margin-top:14px;padding:18px 18px 18px 64px;background:var(--tarjeta);border:1px solid var(--borde);border-radius:16px;counter-increment:n}
+.numerada>li::before{content:counter(n);position:absolute;left:16px;top:16px;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--principal);color:var(--sobre-principal);font-weight:900;font-size:16px}
+.texto-copiar{margin-top:12px;padding:16px;background:#0b0b0b;border:1px dashed #3a3a3a;border-radius:12px;font-size:15px;line-height:1.6;white-space:pre-wrap}
+.boton,.copiar{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 22px;border:0;border-radius:12px;background:var(--principal);color:var(--sobre-principal);font:inherit;font-size:16px;font-weight:900;letter-spacing:.02em;text-decoration:none;text-transform:uppercase;cursor:pointer;box-shadow:0 0 24px rgba(var(--p),.35)}
+.copiar{min-height:42px;margin-top:10px;padding:8px 16px;font-size:14px;box-shadow:none}
+.boton.secundario,.copiar.hecho{background:transparent;color:var(--principal);border:2px solid var(--principal);box-shadow:none}
+label{display:block;margin:14px 0 6px;font-weight:700;font-size:15px}
+input[type=number],input[type=text],select{width:100%;min-height:48px;padding:10px 14px;background:#0b0b0b;color:var(--texto);border:1px solid #3a3a3a;border-radius:10px;font:inherit;font-size:17px}
+input:focus,select:focus{border-color:var(--principal);outline:none}
+.casilla{display:flex;gap:12px;align-items:flex-start;margin-top:10px;padding:14px 16px;background:var(--tarjeta);border:1px solid var(--borde);border-radius:12px;cursor:pointer;font-weight:400}
+.casilla input{flex:none;width:22px;height:22px;margin-top:3px;accent-color:var(--principal)}
+table{width:100%;margin-top:14px;border-collapse:collapse;font-size:15px}
+th,td{padding:10px 8px;border-bottom:1px solid var(--borde);text-align:left;vertical-align:top}
+th{color:var(--suave);font-size:13px;text-transform:uppercase;letter-spacing:.05em}
+.cierre-pagina{margin-top:52px;padding:28px 22px;text-align:center;background:linear-gradient(180deg,rgba(var(--p),.10),rgba(var(--p),0));border:1px solid rgba(var(--p),.4);border-radius:20px}
+.cierre-pagina h2{margin-top:0}
+.cierre-pagina p{color:var(--suave)}
+.cierre-pagina .boton{margin-top:18px}
+footer{padding:36px var(--lado) calc(36px + env(safe-area-inset-bottom));border-top:1px solid #1d1d1d;color:#777;font-size:12px;line-height:1.9;text-align:center}
+footer img{width:64px;height:auto;margin:0 auto 10px;opacity:.9}
+.pie-marca{max-width:330px;margin:0 auto 14px;color:var(--suave);font-size:14px;line-height:1.5}
+footer a{color:#9a9a9a}
+@media (min-width:700px){:root{--lado:32px}main{padding-top:34px}}
+@media print{.cabecera,.cierre-pagina,.copiar,footer{display:none}body,html{background:#fff;color:#000}.tarjeta,.numerada>li,.texto-copiar{background:#fff;border-color:#bbb;break-inside:avoid}strong,b{color:#000}}
+</style>
+</head>
+<body>
+<header class="cabecera"><a href="../"><img src="../recursos/logo-amz-house.png" alt="AMZ House" width="58" height="58"></a></header>
+<main>
+<p class="antetitulo">Gratis · Números reales</p><h1>Calculadora de <span>rentabilidad</span> FBA</h1>
+<p class="entradilla">Mete tus números y mira lo que de verdad te queda por cada venta en Amazon.es, con los costes que casi nadie suma.</p>
+<style>
+.calc{--calc-mal:#ff6b6b;--calc-iva:#3987e5;--calc-amazon:#d95926;--calc-producto:#199e70;--calc-gastos:#9085e9;--calc-queda:#c98500}
+.calc-intro{margin-top:22px}
+.calc .tarjeta{padding:18px 18px 20px}
+.calc label{margin-top:18px}
+.calc .tarjeta>label:first-child,.calc .tarjeta>.calc-bloque:first-child label{margin-top:0}
+.calc-campo{position:relative}
+.calc-campo input{padding-right:44px;font-variant-numeric:tabular-nums}
+.calc-campo .calc-unidad{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--suave);font-weight:700;pointer-events:none}
+.calc input.calc-error{border-color:var(--calc-mal)}
+.calc-ayuda{margin-top:6px;color:var(--suave);font-size:14px;line-height:1.5}
+.calc-ayuda a{color:var(--principal)}
+.calc-ejemplo{color:var(--principal);font-weight:700;white-space:nowrap}
+.calc-oficial{color:#7fd1a9;font-weight:700;white-space:nowrap}
+.calc-kpis{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;margin-top:16px}
+.calc-kpis.calc-pedido{grid-template-columns:minmax(0,1fr)}
+.calc-kpi{padding:16px;background:var(--tarjeta);border:1px solid var(--borde);border-radius:16px}
+.calc-kpi.calc-grande{grid-column:1/-1;border-color:rgba(var(--p),.55);background:linear-gradient(180deg,rgba(var(--p),.10),rgba(var(--p),.02))}
+.calc-kpi-nombre{display:block;color:var(--suave);font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.calc-kpi-valor{display:block;margin-top:4px;font-size:26px;line-height:1.15;font-weight:900;font-variant-numeric:tabular-nums}
+.calc-grande .calc-kpi-valor{font-size:clamp(34px,10vw,46px);color:var(--principal)}
+.calc-kpi-nota{display:block;margin-top:4px;color:var(--suave);font-size:13px;line-height:1.4}
+.calc .calc-negativo,.calc-grande .calc-negativo{color:var(--calc-mal)}
+.calc-aviso-mal{border-left-color:var(--calc-mal);background:rgba(255,107,107,.08)}
+.calc-tabla td:last-child,.calc-tabla th:last-child{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.calc-tabla tr.calc-total td{border-bottom:0;padding-top:12px;font-weight:900;font-size:17px;color:#fff}
+.calc-tabla tr.calc-sub td{color:var(--suave);font-size:13px;padding-top:2px}
+.calc-tabla td small{display:block;color:var(--suave);font-size:13px;line-height:1.4}
+.calc-barra-desglose{position:relative;display:flex;gap:2px;height:30px;margin-top:16px;border-radius:6px;overflow:hidden;background:var(--fondo)}
+.calc-barra-desglose span{display:block;height:100%;min-width:0}
+.calc-marca-precio{position:absolute;top:-4px;bottom:-4px;width:3px;margin-left:-1px;background:#fff;border-radius:2px}
+.calc-leyenda{list-style:none;margin:14px 0 0;padding:0}
+.calc .calc-leyenda li{display:flex;align-items:baseline;gap:10px;margin-top:0;padding:9px 0;border-bottom:1px solid var(--borde);font-size:15px}
+.calc-leyenda li:last-child{border-bottom:0}
+.calc-muestra{flex:none;width:12px;height:12px;border-radius:3px;transform:translateY(1px)}
+.calc-leyenda .calc-concepto{flex:1}
+.calc-leyenda .calc-importe{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
+.calc-leyenda .calc-pct{width:58px;text-align:right;color:var(--suave);font-size:14px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.calc-titular{margin-top:6px;font-size:20px;line-height:1.35;font-weight:800}
+.calc-titular strong{color:var(--principal)}
+.calc-titular strong.calc-negativo{color:var(--calc-mal)}
+.calc-pequeno{margin-top:40px;font-size:14px;line-height:1.55;color:var(--suave)}
+.calc-pequeno h3{font-size:15px;color:var(--texto);text-transform:uppercase;letter-spacing:.04em}
+.calc-pequeno ul{margin:8px 0 0 18px}
+.calc-pequeno li+li{margin-top:6px}
+.calc-pequeno ul+p{margin-top:12px}
+.calc-pie-flotante{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px var(--lado) calc(12px + env(safe-area-inset-bottom));background:rgba(10,10,10,.96);border-top:1px solid rgba(var(--p),.5);color:var(--texto);text-decoration:none;font-size:15px;line-height:1.3;transform:translateY(110%);transition:transform .2s ease}
+.calc-pie-flotante.calc-visible{transform:none}
+.calc-pie-flotante strong{color:var(--principal);font-size:18px;font-variant-numeric:tabular-nums}
+.calc-pie-flotante strong.calc-negativo{color:var(--calc-mal)}
+.calc-pie-flotante .calc-ir{flex:none;padding:8px 12px;border:2px solid var(--principal);border-radius:10px;color:var(--principal);font-weight:900;font-size:13px;text-transform:uppercase}
+.calc-datos{padding-bottom:8px}
+@media (min-width:700px){.calc-kpis{grid-template-columns:2fr 1fr 1fr}.calc-kpis.calc-pedido{grid-template-columns:repeat(3,minmax(0,1fr))}.calc-kpi.calc-grande{grid-column:auto}.calc-pie-flotante{justify-content:center;gap:28px}}
+@media (prefers-reduced-motion:reduce){.calc-pie-flotante{transition:none}}
+@media print{.calc-pie-flotante{display:none}.calc-barra-desglose,.calc-muestra{-webkit-print-color-adjust:exact;print-color-adjust:exact}.calc-kpi,.calc-tabla tr{break-inside:avoid}.calc-kpi{background:#fff}.calc-kpi-valor,.calc-grande .calc-kpi-valor,.calc-titular strong,.calc-tabla tr.calc-total td{color:#000}}
+</style>
+
+<div class="calc">
+
+<div class="aviso calc-intro">
+<p><strong>Cambia los números por los tuyos y mira el resultado al momento.</strong> Los que vienen puestos son un <span class="calc-ejemplo">ejemplo</span>; los que salen de las tarifas de Amazon van marcados como <span class="calc-oficial">dato oficial</span>.</p>
+<p class="nota">Puedes escribir con coma o con punto. Todo se calcula en tu móvil: no se guarda ni se envía nada.</p>
+</div>
+
+<noscript><div class="aviso calc-aviso-mal"><p>La calculadora necesita JavaScript. Actívalo en tu navegador para usarla.</p></div></noscript>
+
+<div class="calc-datos" id="calc-datos">
+
+<h2>1 · Lo que <span>cobras</span></h2>
+<div class="tarjeta">
+  <label for="calc-precio">Precio de venta en Amazon.es (con IVA)</label>
+  <div class="calc-campo"><input type="text" inputmode="decimal" autocomplete="off" id="calc-precio" value="24,99" aria-describedby="calc-precio-ayuda"><span class="calc-unidad" aria-hidden="true">€</span></div>
+  <p class="calc-ayuda" id="calc-precio-ayuda">Lo que paga el cliente. <span class="calc-ejemplo">Ejemplo, cámbialo.</span></p>
+
+  <label for="calc-iva">Tipo de IVA de tu producto</label>
+  <select id="calc-iva" aria-describedby="calc-iva-ayuda">
+    <option value="21" selected>21 % (general)</option>
+    <option value="10">10 % (reducido)</option>
+    <option value="4">4 % (superreducido)</option>
+  </select>
+  <p class="calc-ayuda" id="calc-iva-ayuda">El que lleva tu producto en España. Si dudas, pregúntalo a tu gestoría.</p>
+</div>
+
+<h2>2 · Lo que te cuesta el <span>producto</span></h2>
+<div class="tarjeta">
+  <label for="calc-fabrica">Coste del producto por unidad (fábrica)</label>
+  <div class="calc-campo"><input type="text" inputmode="decimal" autocomplete="off" id="calc-fabrica" value="4,00" aria-describedby="calc-fabrica-ayuda"><span class="calc-unidad" aria-hidden="true">€</span></div>
+  <p class="calc-ayuda" id="calc-fabrica-ayuda">Lo que pagas al proveedor por cada unidad. <span class="calc-ejemplo">Ejemplo, cámbialo.</span></p>
+
+  <label for="calc-envio-int">Envío internacional y aduanas por unidad</label>
+  <div class="calc-campo"><input type="text" inputmode="decimal" autocomplete="off" id="calc-envio-int" value="1,20" aria-describedby="calc-envio-int-ayuda"><span class="calc-unidad" aria-hidden="true">€</span></div>
+  <p class="calc-ayuda" id="calc-envio-int-ayuda">Flete, despacho y aranceles, divididos entre las unidades. Sin el IVA de importación si lo recuperas (lee la nota del IVA, abajo). <span class="calc-ejemplo">Ejemplo, cámbialo.</span></p>
+
+  <label for="calc-envio-alm">Envío hasta el almacén de Amazon por unidad</label>
+  <div class="calc-campo"><input type="text" inputmode="decimal" autocomplete="off" id="calc-envio-alm" value="0,40" aria-describedby="calc-envio-alm-ayuda"><span class="calc-unidad" aria-hidden="true">€</span></div>
+  <p class="calc-ayuda" id="calc-envio-alm-ayuda">Del puerto o de tu almacén al de Amazon. <span class="calc-ejemplo">Ejemplo, cámbialo.</span></p>
+
+  <label for="calc-otros">Otros costes por unidad</label>
+  <div class="calc-campo"><input type="text" inputmode="decimal" autocomplete="off" id="calc-otros" value="0,30" aria-describedby="calc-otros-ayuda"><span class="calc-unidad" aria-hidden="true">€</span></div>
+  <p class="calc-ayuda" id="calc-otros-ayuda">Etiquetas, embalaje, inspección de calidad… <span class="calc-ejemplo">Ejemplo, cámbialo.</span></p>
+</div>
+
+<h2>3 · Lo que te cobra <span>Amazon</span></h2>
+<div class="tarjeta">
+  <label for="calc-referencia">Tarifa por referencia</label>
+  <div class="calc-campo"><input type="text" inputmode="decimal" autocomplete="off" id="calc-referencia" value="15" aria-describedby="calc-referencia-ayuda"><span class="calc-unidad" aria-hidden="true">%</span></div>
+  <p class="calc-ayuda" id="calc-referencia-ayuda">La comisión de Amazon por cada venta. Se calcula sobre el precio <strong>con IVA</strong> y tiene un mínimo de 0,30 € por artículo en casi todas las categorías. <span class="calc-oficial">Dato oficial:</span> la mayoría de categorías paga el 15 %. Otras: Electrónica e Informática, 7 %; Bricolaje y herramientas, 13 %; Belleza, salud y cuidado personal, 8 % si el precio es de 10 € o menos y 15 % si es más. Algunas cobran por tramos: busca la tuya en la <a href="https://sellercentral.amazon.es/help/hub/reference/external/GCZC4GX2L32EKP6F?locale=es-ES" target="_blank" rel="noopener">tabla oficial de Amazon.es</a>.</p>
+
+  <label for="calc-sede">¿Dónde tiene su sede tu empresa?</label>
+  <select id="calc-sede" aria-describedby="calc-sede-ayuda">
+    <option value="es" selected>España u otro país</option>
+    <option value="ukfr">Reino Unido o Francia</option>
+  </select>
+  <p class="calc-ayuda" id="calc-sede-ayuda"><span class="calc-oficial">Dato oficial:</span> en las ventas de Amazon.es, Amazon suma un 3 % a su tarifa por referencia (el «recargo por servicios digitales», por el impuesto español sobre servicios digitales). Si tu empresa está en Reino Unido o Francia, también a la tarifa de logística. La calculadora ya lo suma.</p>
+
+  <label for="calc-fba">Tarifa de logística (FBA) por unidad</label>
+  <div class="calc-campo"><input type="text" inputmode="decimal" autocomplete="off" id="calc-fba" value="3,85" aria-describedby="calc-fba-ayuda"><span class="calc-unidad" aria-hidden="true">€</span></div>
+  <p class="calc-ayuda" id="calc-fba-ayuda">Lo que cobra Amazon por preparar y enviar cada pedido. Depende del peso y las medidas de tu producto ya embalado: sácala de la <a href="https://sellercentral.amazon.es/revcalpublic?lang=es-ES" target="_blank" rel="noopener">calculadora oficial de ingresos y gastos de Amazon</a>. <span class="calc-ejemplo">Ejemplo:</span> un paquete estándar de hasta 400 g en Amazon.es paga 3,77 €; desde el 2-11-2026 Amazon le suma un 2 % de recargo por combustible y logística, y se queda en 3,85 €. Si la cifra que te da la calculadora no lleva ese 2 %, súmaselo.</p>
+
+  <label for="calc-almacen">Almacenamiento por unidad</label>
+  <div class="calc-campo"><input type="text" inputmode="decimal" autocomplete="off" id="calc-almacen" value="0,17" aria-describedby="calc-almacen-ayuda"><span class="calc-unidad" aria-hidden="true">€</span></div>
+  <p class="calc-ayuda" id="calc-almacen-ayuda">Amazon cobra por el espacio que ocupa tu stock. <span class="calc-oficial">Dato oficial</span> (tamaño estándar, en España): 27,54 € por metro cúbico al mes de enero a septiembre y 52,20 € de octubre a diciembre. <span class="calc-ejemplo">Ejemplo:</span> una caja de 20 × 15 × 10 cm (0,003 m³) que tarda 2 meses en venderse: 0,003 × 27,54 × 2 ≈ 0,17 €.</p>
+</div>
+
+<h2>4 · Publicidad y <span>devoluciones</span></h2>
+<div class="tarjeta">
+  <label for="calc-tacos">Publicidad, en % de tus ventas (TACoS)</label>
+  <div class="calc-campo"><input type="text" inputmode="decimal" autocomplete="off" id="calc-tacos" value="10" aria-describedby="calc-tacos-ayuda"><span class="calc-unidad" aria-hidden="true">%</span></div>
+  <p class="calc-ayuda" id="calc-tacos-ayuda">Lo que gastas en anuncios dividido entre todo lo que vendes. Aquí se calcula sobre el precio con IVA. Si no lo sabes, prueba varios números y mira cuánto aguanta tu margen. <span class="calc-ejemplo">Ejemplo, cámbialo.</span></p>
+
+  <label for="calc-devol">Devoluciones</label>
+  <div class="calc-campo"><input type="text" inputmode="decimal" autocomplete="off" id="calc-devol" value="3" aria-describedby="calc-devol-ayuda"><span class="calc-unidad" aria-hidden="true">%</span></div>
+  <p class="calc-ayuda" id="calc-devol-ayuda">De cada 100 ventas, cuántas te devuelven. Devuelves el dinero al cliente y Amazon te devuelve su tarifa por referencia menos un 20 % de ella, con un máximo de 5 € (<span class="calc-oficial">dato oficial</span>). La calculadora va a lo prudente: supone que lo devuelto no se puede volver a vender. <span class="calc-ejemplo">Ejemplo, cámbialo.</span></p>
+</div>
+
+<h2>5 · Tu primer <span>pedido</span></h2>
+<div class="tarjeta">
+  <label for="calc-unidades">Unidades del primer pedido</label>
+  <div class="calc-campo"><input type="text" inputmode="numeric" autocomplete="off" id="calc-unidades" value="500" aria-describedby="calc-unidades-ayuda"><span class="calc-unidad" aria-hidden="true">ud</span></div>
+  <p class="calc-ayuda" id="calc-unidades-ayuda"><span class="calc-ejemplo">Ejemplo, cámbialo.</span></p>
+
+  <label for="calc-arranque">Gastos de arranque (una sola vez)</label>
+  <div class="calc-campo"><input type="text" inputmode="decimal" autocomplete="off" id="calc-arranque" value="1.500" aria-describedby="calc-arranque-ayuda"><span class="calc-unidad" aria-hidden="true">€</span></div>
+  <p class="calc-ayuda" id="calc-arranque-ayuda">Fotos, códigos de barras, muestras, registro de marca… Lo que pagas una vez, no por unidad. <span class="calc-ejemplo">Ejemplo, cámbialo.</span></p>
+</div>
+
+</div>
+
+<section id="calc-resultados" aria-labelledby="calc-resultados-titulo">
+<h2 id="calc-resultados-titulo">Tus <span>números</span></h2>
+
+<div class="aviso calc-aviso-mal" id="calc-error" hidden><p id="calc-error-texto"></p></div>
+
+<div id="calc-salida">
+<div class="aviso calc-aviso-mal" id="calc-perdida" hidden><p id="calc-perdida-texto"></p></div>
+
+<div class="calc-kpis">
+  <div class="calc-kpi calc-grande">
+    <span class="calc-kpi-nombre">Beneficio neto por venta</span>
+    <span class="calc-kpi-valor" id="calc-r-beneficio">–</span>
+    <span class="calc-kpi-nota">Lo que te queda limpio de cada unidad vendida, antes de tus impuestos sobre el beneficio.</span>
+  </div>
+  <div class="calc-kpi">
+    <span class="calc-kpi-nombre">Margen neto</span>
+    <span class="calc-kpi-valor" id="calc-r-margen">–</span>
+    <span class="calc-kpi-nota">Sobre el precio sin IVA.</span>
+  </div>
+  <div class="calc-kpi">
+    <span class="calc-kpi-nombre">Retorno (ROI)</span>
+    <span class="calc-kpi-valor" id="calc-r-roi">–</span>
+    <span class="calc-kpi-nota">Lo que ganas por cada euro que pones en mercancía.</span>
+  </div>
+</div>
+
+<h3 style="margin-top:32px">Cada venta, <span>línea a línea</span></h3>
+<table class="calc-tabla">
+  <tbody>
+    <tr><td>Precio de venta (con IVA)</td><td id="calc-t-precio">–</td></tr>
+    <tr><td>IVA de la venta<small>No es tuyo: va a Hacienda.</small></td><td id="calc-t-iva">–</td></tr>
+    <tr class="calc-total"><td>Precio sin IVA</td><td id="calc-t-siniva">–</td></tr>
+    <tr><td>Tarifa por referencia</td><td id="calc-t-referencia">–</td></tr>
+    <tr><td>Recargo por servicios digitales (3 %)</td><td id="calc-t-recargo">–</td></tr>
+    <tr><td>Tarifa de logística (FBA)</td><td id="calc-t-fba">–</td></tr>
+    <tr><td>Almacenamiento</td><td id="calc-t-almacen">–</td></tr>
+    <tr><td>Producto puesto en Amazon<small>Fábrica, envíos, aduanas y otros.</small></td><td id="calc-t-producto">–</td></tr>
+    <tr><td>Publicidad</td><td id="calc-t-publicidad">–</td></tr>
+    <tr><td>Devoluciones<small>Lo que te cuestan de media en cada venta.</small></td><td id="calc-t-devol">–</td></tr>
+    <tr class="calc-total"><td>Beneficio neto</td><td id="calc-t-beneficio">–</td></tr>
+  </tbody>
+</table>
+
+<h3 style="margin-top:32px">Tu primer <span>pedido</span></h3>
+<div class="calc-kpis calc-pedido">
+  <div class="calc-kpi">
+    <span class="calc-kpi-nombre">Inversión total</span>
+    <span class="calc-kpi-valor" id="calc-r-inversion">–</span>
+    <span class="calc-kpi-nota" id="calc-r-inversion-nota">Mercancía puesta en Amazon más gastos de arranque.</span>
+  </div>
+  <div class="calc-kpi">
+    <span class="calc-kpi-nombre">Para recuperarla</span>
+    <span class="calc-kpi-valor" id="calc-r-recuperar">–</span>
+    <span class="calc-kpi-nota" id="calc-r-recuperar-nota">Unidades que tienes que vender.</span>
+  </div>
+  <div class="calc-kpi">
+    <span class="calc-kpi-nombre">Si lo vendes entero</span>
+    <span class="calc-kpi-valor" id="calc-r-pedido">–</span>
+    <span class="calc-kpi-nota">Beneficio del pedido menos los gastos de arranque.</span>
+  </div>
+</div>
+
+<h3 style="margin-top:32px">Lo máximo que puedes gastar en <span>publicidad</span></h3>
+<div class="tarjeta">
+  <p class="calc-titular">Hasta <strong id="calc-r-pubmax">–</strong> por venta.</p>
+  <p class="nota" id="calc-r-acos">–</p>
+</div>
+
+<h3 style="margin-top:32px">El desglose, <span>en claro</span></h3>
+<div class="tarjeta">
+  <p class="calc-titular" id="calc-r-titular">–</p>
+  <div class="calc-barra-desglose" id="calc-barra" role="img" aria-label="Reparto de cada venta"></div>
+  <p class="nota" id="calc-r-raya" hidden>La raya blanca es lo que cobras. Todo lo que pasa de ella lo pones tú.</p>
+  <ul class="calc-leyenda" id="calc-leyenda"></ul>
+  <p class="nota">Amazon: tarifa por referencia, recargo, logística y almacenamiento. Tu producto: fábrica, envíos, aduanas y otros.</p>
+</div>
+</div>
+</section>
+
+<div class="calc-pequeno">
+<div class="aviso">
+<h3>El IVA, en corto</h3>
+<p>Esto no es asesoría fiscal. Es cómo funciona en general si estás dado de alta en IVA en España:</p>
+<ul>
+  <li>El precio que ves en Amazon.es lleva IVA. Esa parte no es tuya: por eso la calculadora trabaja con el precio sin IVA.</li>
+  <li>Amazon publica sus tarifas sin IVA y les aplica el IVA que toca según tu país y tu número de IVA. Si puedes deducirlo, no es un coste: por eso aquí van sin IVA. Lo mismo con la publicidad.</li>
+  <li>El IVA que pagas en la aduana al importar también se suele poder deducir si importas a tu nombre para tu negocio. No lo metas en «envío y aduanas»; los aranceles, sí.</li>
+  <li>Si no puedes deducir el IVA, súmalo a cada coste y el beneficio bajará.</li>
+</ul>
+<p>Tu caso concreto, con tu gestoría.</p>
+</div>
+
+<h3 style="margin-top:28px">Lo que no incluye</h3>
+<ul>
+  <li>La cuota del plan Profesional de Amazon: 39 € al mes sin IVA (<span class="calc-oficial">dato oficial</span>).</li>
+  <li>Tus impuestos sobre el beneficio (IRPF o Sociedades).</li>
+  <li>Tarifas que solo pagan algunos productos: tarifas por tramos de precio, recargos por almacenamiento prolongado o por exceso de stock, tarifas por procesar devoluciones en ciertas categorías.</li>
+</ul>
+
+<h3 style="margin-top:28px">De dónde salen los datos</h3>
+<p>Comprobados en las páginas oficiales de Amazon el 18 de noviembre de 2026:</p>
+<ul>
+  <li><a href="https://sellercentral.amazon.es/help/hub/reference/external/GCZC4GX2L32EKP6F?locale=es-ES" target="_blank" rel="noopener">Tabla de tarifas de Amazon.es</a>: porcentajes por categoría, mínimo de 0,30 €, recargo del 3 % y tarifa por gestión de reembolso.</li>
+  <li><a href="https://sellercentral.amazon.es/help/hub/reference/external/GV5S2CSZM8C5TM53?locale=es-ES" target="_blank" rel="noopener">Metodología de cálculo de la tarifa por referencia</a>: se cobra sobre lo que paga el cliente, impuestos incluidos.</li>
+  <li><a href="https://sellercentral.amazon.es/help/hub/reference/external/GMVQXVHHG8Q8KN7L?locale=es-ES" target="_blank" rel="noopener">Tarifa por servicios digitales</a>: el 3 % en Amazon.es según dónde está tu empresa.</li>
+  <li><a href="https://sellercentral.amazon.es/help/hub/reference/external/G200336920?locale=es-ES" target="_blank" rel="noopener">Tabla de tarifas de Vender en Amazon</a>: las tarifas se publican sin IVA.</li>
+  <li><a href="https://m.media-amazon.com/images/G/02/sell/images/261014-FBA-Rate-Card-ES.pdf" target="_blank" rel="noopener">Tarjeta de tarifas de Logística de Amazon</a> (en vigor desde el 1 de julio de 2026): logística, almacenamiento y recargo por combustible.</li>
+  <li><a href="https://sellercentral.amazon.es/revcalpublic?lang=es-ES" target="_blank" rel="noopener">Calculadora de ingresos y gastos de Amazon</a>: la tarifa de logística exacta de tu producto.</li>
+</ul>
+<p>Es una estimación, no una garantía: las tarifas de Amazon cambian. Antes de pagar un pedido, comprueba tu producto en la calculadora oficial.</p>
+</div>
+
+<a class="calc-pie-flotante" id="calc-pie" href="#calc-resultados" aria-hidden="true" tabindex="-1">
+  <span><span id="calc-pie-texto">Te quedan</span> <strong id="calc-pie-valor">–</strong> por venta</span>
+  <span class="calc-ir">Ver números ↓</span>
+</a>
+
+</div>
+
+<script>
+(function () {
+  /* calculo:inicio — funciones puras, sin tocar la página (se prueban aparte con node) */
+  var RECARGO_DIGITAL = 0.03;      // tarifa por servicios digitales en Amazon.es (Seller Central, 18-11-2026)
+  var MINIMO_REFERENCIA = 0.30;    // tarifa por referencia mínima por artículo (casi todas las categorías)
+  var GESTION_REEMBOLSO_PCT = 0.20; // tarifa por gestión de reembolso: 20 % de la tarifa por referencia…
+  var GESTION_REEMBOLSO_MAX = 5;    // …con un máximo de 5 €
+
+  // Lee un número escrito a la española o a la inglesa: «1.234,56», «1234,56», «12.5», «1.500».
+  function leerNumero(texto) {
+    var s = String(texto == null ? "" : texto).replace(/[\s €%]/g, "").replace(/ud$/i, "");
+    if (s === "") return 0;
+    var coma = s.lastIndexOf(","), punto = s.lastIndexOf(".");
+    if (coma > -1 && punto > -1) {
+      s = coma > punto ? s.replace(/\./g, "").replace(",", ".") : s.replace(/,/g, "");
+    } else if (coma > -1) {
+      if (s.indexOf(",") !== coma) return NaN;
+      s = s.replace(",", ".");
+    } else if (punto > -1 && /^[1-9]\d{0,2}(\.\d{3})+$/.test(s)) {
+      s = s.replace(/\./g, "");
+    }
+    if (!/^(\d+\.?\d*|\.\d+)$/.test(s)) return NaN;
+    return parseFloat(s);
+  }
+
+  // Todos los importes por unidad vendida. d: precio con IVA, porcentajes en tanto por uno.
+  function calcular(d) {
+    var r = {};
+    r.precio = d.precio;
+    r.sinIva = d.precio / (1 + d.iva);
+    r.iva = d.precio - r.sinIva;
+    r.referencia = d.referencia > 0 ? Math.max(d.precio * d.referencia, MINIMO_REFERENCIA) : 0;
+    r.recargo = RECARGO_DIGITAL * (r.referencia + (d.sede === "ukfr" ? d.fba : 0));
+    r.fba = d.fba;
+    r.almacen = d.almacen;
+    r.amazon = r.referencia + r.recargo + r.fba + r.almacen;
+    r.producto = d.fabrica + d.envioInt + d.envioAlm + d.otros;
+    r.publicidad = d.tacos * d.precio;
+    // En una devolución pierdes el ingreso sin IVA y Amazon te devuelve la tarifa por referencia
+    // menos la tarifa por gestión de reembolso. Lo demás (logística, almacén, anuncios y la unidad,
+    // que se da por perdida) ya está pagado en cada venta.
+    r.gestionReembolso = Math.min(GESTION_REEMBOLSO_MAX, GESTION_REEMBOLSO_PCT * r.referencia);
+    r.devoluciones = d.devol * (r.sinIva - r.referencia + r.gestionReembolso);
+    r.beneficio = r.sinIva - r.amazon - r.producto - r.publicidad - r.devoluciones;
+    r.margen = r.sinIva > 0 ? r.beneficio / r.sinIva : null;
+    r.roi = r.producto > 0 ? r.beneficio / r.producto : null;
+    r.inversion = d.unidades * r.producto + d.arranque;
+    // Cada venta te devuelve en caja lo que costó la unidad más el beneficio.
+    r.cajaPorVenta = r.beneficio + r.producto;
+    r.recuperar = r.cajaPorVenta > 0 ? Math.ceil(r.inversion / r.cajaPorVenta - 1e-9) : null;
+    r.resultadoPedido = d.unidades * r.beneficio - d.arranque;
+    r.antesPublicidad = r.beneficio + r.publicidad;
+    r.acos = d.precio > 0 ? r.antesPublicidad / d.precio : null;
+    r.acosSinIva = r.sinIva > 0 ? r.antesPublicidad / r.sinIva : null;
+    return r;
+  }
+
+  // 1234.5 → «1.234,50»; -0,001 → «0,00» (sin signo menos suelto).
+  function formatoNumero(n, decimales) {
+    var s = Math.abs(n).toFixed(decimales);
+    var partes = s.split(".");
+    var entero = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    var texto = entero + (decimales > 0 ? "," + partes[1] : "");
+    var esCero = /^[0.,]+$/.test(texto);
+    return (n < 0 && !esCero ? "−" : "") + texto;
+  }
+  function euros(n) { return formatoNumero(n, 2) + " €"; }
+  function porcentaje(n) { return formatoNumero(n * 100, 1) + " %"; }
+  /* calculo:fin */
+
+  if (typeof document === "undefined") return;
+
+  var campos = {
+    precio: "calc-precio", fabrica: "calc-fabrica", envioInt: "calc-envio-int", envioAlm: "calc-envio-alm",
+    otros: "calc-otros", referencia: "calc-referencia", fba: "calc-fba", almacen: "calc-almacen",
+    tacos: "calc-tacos", devol: "calc-devol", unidades: "calc-unidades", arranque: "calc-arranque"
+  };
+  var porcentajes = { referencia: true, tacos: true, devol: true };
+  function $(id) { return document.getElementById(id); }
+  function poner(id, texto, negativo) {
+    var el = $(id);
+    el.textContent = texto;
+    if (negativo !== undefined) el.classList.toggle("calc-negativo", !!negativo);
+  }
+
+  function leerFormulario() {
+    var d = {}, errores = [];
+    Object.keys(campos).forEach(function (clave) {
+      var input = $(campos[clave]);
+      var valor = leerNumero(input.value);
+      var mal = isNaN(valor) || valor < 0 || (!!porcentajes[clave] && clave !== "tacos" && valor > 100);
+      input.classList.toggle("calc-error", mal);
+      input.setAttribute("aria-invalid", mal ? "true" : "false");
+      if (mal) errores.push(input);
+      d[clave] = porcentajes[clave] ? valor / 100 : valor;
+    });
+    d.unidades = Math.floor(d.unidades);
+    d.iva = Number($("calc-iva").value) / 100;
+    d.sede = $("calc-sede").value;
+    return { datos: d, errores: errores };
+  }
+
+  var ultimo = null;
+
+  function pintar() {
+    var leido = leerFormulario(), d = leido.datos;
+    var error = $("calc-error"), salida = $("calc-salida");
+    if (leido.errores.length || !(d.precio > 0)) {
+      $("calc-error-texto").textContent = leido.errores.length
+        ? "Revisa los campos marcados en rojo: solo números positivos (los porcentajes, hasta 100)."
+        : "Pon el precio de venta para ver el cálculo.";
+      error.hidden = false;
+      salida.hidden = true;
+      ultimo = null;
+      actualizarPie();
+      return;
+    }
+    error.hidden = true;
+    salida.hidden = false;
+    var r = calcular(d);
+    ultimo = r;
+    var pierde = r.beneficio < 0;
+
+    poner("calc-r-beneficio", euros(r.beneficio), pierde);
+    poner("calc-r-margen", r.margen === null ? "–" : porcentaje(r.margen), pierde);
+    poner("calc-r-roi", r.roi === null ? "–" : porcentaje(r.roi), pierde);
+    $("calc-perdida").hidden = !pierde;
+    if (pierde) {
+      $("calc-perdida-texto").textContent = "Con estos números pierdes " + euros(-r.beneficio) +
+        " en cada venta. Mira en el desglose qué pesa más: el precio, el coste del producto o la publicidad.";
+    }
+
+    poner("calc-t-precio", euros(r.precio));
+    poner("calc-t-iva", euros(-r.iva));
+    poner("calc-t-siniva", euros(r.sinIva));
+    poner("calc-t-referencia", euros(-r.referencia));
+    poner("calc-t-recargo", euros(-r.recargo));
+    poner("calc-t-fba", euros(-r.fba));
+    poner("calc-t-almacen", euros(-r.almacen));
+    poner("calc-t-producto", euros(-r.producto));
+    poner("calc-t-publicidad", euros(-r.publicidad));
+    poner("calc-t-devol", euros(-r.devoluciones));
+    poner("calc-t-beneficio", euros(r.beneficio), pierde);
+
+    poner("calc-r-inversion", euros(r.inversion));
+    poner("calc-r-inversion-nota", d.unidades + " ud × " + euros(r.producto) + " + " + euros(d.arranque) + " de arranque.");
+    if (pierde || r.recuperar === null) {
+      poner("calc-r-recuperar", "No llegas", true);
+      poner("calc-r-recuperar-nota", "Si pierdes en cada venta, vender más no te la devuelve.");
+    } else if (r.recuperar > d.unidades) {
+      poner("calc-r-recuperar", formatoNumero(r.recuperar, 0) + " ud", true);
+      poner("calc-r-recuperar-nota", "Más de las " + formatoNumero(d.unidades, 0) + " del pedido: con este pedido no la recuperas.");
+    } else {
+      poner("calc-r-recuperar", formatoNumero(r.recuperar, 0) + " ud", false);
+      poner("calc-r-recuperar-nota", "De las " + formatoNumero(d.unidades, 0) + " del pedido. Cada venta te devuelve lo que costó la unidad más el beneficio.");
+    }
+    poner("calc-r-pedido", (r.resultadoPedido >= 0 ? "+" : "") + euros(r.resultadoPedido), r.resultadoPedido < 0);
+
+    if (r.antesPublicidad <= 0) {
+      poner("calc-r-pubmax", euros(0), true);
+      poner("calc-r-acos", "Aunque no gastes nada en anuncios, pierdes dinero con estos números.");
+    } else {
+      poner("calc-r-pubmax", euros(r.antesPublicidad), false);
+      poner("calc-r-acos", "Es tu ACoS de equilibrio: " + porcentaje(r.acos) + " sobre el precio con IVA (" +
+        porcentaje(r.acosSinIva) + " sobre el precio sin IVA). Si una venta con anuncio te cuesta más que eso, esa venta pierde dinero.");
+    }
+
+    pintarDesglose(r);
+    actualizarPie();
+  }
+
+  function pintarDesglose(r) {
+    var partes = [
+      { nombre: "Hacienda (IVA)", valor: r.iva, color: "var(--calc-iva)" },
+      { nombre: "Amazon", valor: r.amazon, color: "var(--calc-amazon)" },
+      { nombre: "Tu producto", valor: r.producto, color: "var(--calc-producto)" },
+      { nombre: "Anuncios y devoluciones", valor: r.publicidad + r.devoluciones, color: "var(--calc-gastos)" }
+    ];
+    var queda = r.beneficio;
+    if (queda > 0) partes.push({ nombre: "A ti te queda", valor: queda, color: "var(--calc-queda)" });
+    var total = queda > 0 ? r.precio : r.precio - queda;
+
+    var titular = $("calc-r-titular");
+    titular.textContent = "";
+    titular.appendChild(document.createTextNode("De cada venta de " + euros(r.precio) + ", "));
+    var fuerte = document.createElement("strong");
+    if (queda >= 0) {
+      titular.appendChild(document.createTextNode("a ti te quedan "));
+      fuerte.textContent = euros(queda);
+    } else {
+      titular.appendChild(document.createTextNode("tú pierdes "));
+      fuerte.textContent = euros(-queda);
+      fuerte.className = "calc-negativo";
+    }
+    titular.appendChild(fuerte);
+    titular.appendChild(document.createTextNode("."));
+
+    var barra = $("calc-barra"), leyenda = $("calc-leyenda");
+    barra.textContent = "";
+    leyenda.textContent = "";
+    var etiqueta = [];
+    partes.forEach(function (p) {
+      if (p.valor > 0) {
+        var trozo = document.createElement("span");
+        trozo.style.flex = String(p.valor / total);
+        trozo.style.background = p.color;
+        trozo.title = p.nombre + ": " + euros(p.valor);
+        barra.appendChild(trozo);
+      }
+      var li = document.createElement("li");
+      li.innerHTML = '<span class="calc-muestra"></span><span class="calc-concepto"></span><span class="calc-importe"></span><span class="calc-pct"></span>';
+      li.children[0].style.background = p.color;
+      li.children[1].textContent = p.nombre;
+      li.children[2].textContent = euros(p.valor);
+      li.children[3].textContent = porcentaje(p.valor / r.precio);
+      leyenda.appendChild(li);
+      etiqueta.push(p.nombre + " " + euros(p.valor));
+    });
+    $("calc-r-raya").hidden = queda >= 0;
+    if (queda < 0) {
+      var marca = document.createElement("span");
+      marca.className = "calc-marca-precio";
+      marca.style.left = (r.precio / total * 100) + "%";
+      marca.title = "Lo que cobras: " + euros(r.precio);
+      barra.appendChild(marca);
+      var li = document.createElement("li");
+      li.innerHTML = '<span class="calc-muestra" style="background:#fff;width:3px"></span><span class="calc-concepto"></span><span class="calc-importe calc-negativo"></span><span class="calc-pct"></span>';
+      li.children[1].textContent = "Te falta";
+      li.children[2].textContent = euros(queda);
+      leyenda.appendChild(li);
+      etiqueta.push("pierdes " + euros(-queda));
+    }
+    barra.setAttribute("aria-label", "Reparto de cada venta de " + euros(r.precio) + ": " + etiqueta.join(", "));
+  }
+
+  // Barra fija abajo con el beneficio, solo mientras rellenas los datos y no ves los resultados.
+  var pie = $("calc-pie"), viendoDatos = false, viendoResultados = false;
+  function actualizarPie() {
+    var mostrar = viendoDatos && !viendoResultados && ultimo !== null;
+    pie.classList.toggle("calc-visible", mostrar);
+    if (ultimo !== null) {
+      var pierde = ultimo.beneficio < 0;
+      $("calc-pie-texto").textContent = pierde ? "Pierdes" : "Te quedan";
+      poner("calc-pie-valor", euros(Math.abs(ultimo.beneficio)), pierde);
+    }
+  }
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (e) { viendoDatos = e[0].isIntersecting; actualizarPie(); }).observe($("calc-datos"));
+    new IntersectionObserver(function (e) { viendoResultados = e[0].isIntersecting; actualizarPie(); }).observe($("calc-resultados"));
+  }
+
+  Object.keys(campos).forEach(function (clave) { $(campos[clave]).addEventListener("input", pintar); });
+  $("calc-iva").addEventListener("change", pintar);
+  $("calc-sede").addEventListener("change", pintar);
+  pintar();
+})();
+</script>
+
+<section class="cierre-pagina"><h2>¿Quieres el <span>método</span> completo?</h2><p>Entra gratis en la comunidad de AMZ House en WhatsApp. Te cuento lo nuevo de Amazon, el caso de Jorge desde cero y te aviso antes que a nadie cuando abramos Skool. Gratis para siempre.</p><a class="boton" href="https://chat.whatsapp.com/F5Jk8Qgy9gPIKp6BcHsnVD">Entrar gratis</a></section>
+</main>
+<footer><img src="../recursos/logo-amz-house.png" alt="AMZ House" width="120" height="120" loading="lazy"><p class="pie-marca">Mi comunidad para aprender a vender en Amazon, con la IA dentro del método y sin humo.</p><p>© 2026 Richar · AMZ House · Esta página no usa cookies</p><p><a href="../aviso-legal/">Aviso legal</a> · <a href="../politica-de-privacidad/">Privacidad</a> · <a href="../politica-de-cookies/">Cookies</a></p></footer>
+<script>
+document.querySelectorAll("[data-copiar]").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var t = document.getElementById(b.getAttribute("data-copiar"));
+    if (!t) return;
+    var texto = t.innerText.trim(), antes = b.textContent;
+    function hecho() { b.textContent = "¡Copiado!"; b.classList.add("hecho"); setTimeout(function () { b.textContent = antes; b.classList.remove("hecho"); }, 1800); }
+    if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(texto).then(hecho, function () { window.prompt("Copia el texto:", texto); }); }
+    else { window.prompt("Copia el texto:", texto); }
+  });
+});
+</script>
+</body>
+</html>
