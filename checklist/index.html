@@ -61,7 +61,11 @@ th{color:var(--suave);font-size:13px;text-transform:uppercase;letter-spacing:.05
 .cierre-pagina{margin-top:52px;padding:28px 22px;text-align:center;background:linear-gradient(180deg,rgba(var(--p),.10),rgba(var(--p),0));border:1px solid rgba(var(--p),.4);border-radius:20px}
 .cierre-pagina h2{margin-top:0}
 .cierre-pagina p{color:var(--suave)}
-.cierre-pagina .boton{margin-top:18px}
+.cierre-pagina .boton{display:flex;width:100%;min-height:66px;margin-top:22px;padding:16px 20px;font-size:19px;border-radius:14px;box-shadow:0 0 34px rgba(var(--p),.5)}
+.puntos-cierre{list-style:none;max-width:420px;margin:18px auto 0;padding:0;text-align:left}
+.puntos-cierre li{position:relative;margin-top:10px;padding-left:30px;font-weight:700}
+.puntos-cierre li::before{content:"✓";position:absolute;left:0;top:0;color:var(--principal);font-weight:900}
+.cierre-pagina .nota-cierre{margin:12px 0 0;font-size:13px}
 footer{padding:36px var(--lado) calc(36px + env(safe-area-inset-bottom));border-top:1px solid #1d1d1d;color:#777;font-size:12px;line-height:1.9;text-align:center}
 footer img{width:64px;height:auto;margin:0 auto 10px;opacity:.9}
 .pie-marca{max-width:330px;margin:0 auto 14px;color:var(--suave);font-size:14px;line-height:1.5}
@@ -145,7 +149,7 @@ footer a{color:#9a9a9a}
 })();
 </script>
 
-<section class="cierre-pagina"><h2>¿Quieres el <span>método</span> completo?</h2><p>Entra gratis en la comunidad de AMZ House en WhatsApp. Te cuento lo nuevo de Amazon, el caso de Jorge desde cero y te aviso antes que a nadie cuando abramos Skool. Gratis para siempre.</p><a class="boton" href="https://chat.whatsapp.com/F5Jk8Qgy9gPIKp6BcHsnVD">Entrar gratis</a></section>
+<section class="cierre-pagina"><h2>¿Quieres aprender el resto <span>conmigo</span>?</h2><p>Entra gratis en AMZ House, mi comunidad para aprender a vender en Amazon con la IA dentro del método. Sin humo.</p><ul class="puntos-cierre"><li>El método real, paso a paso</li><li>La IA dentro del método</li><li>Mis errores, para que no los pagues</li><li>Gente que ejecuta, no coleccionistas de cursos</li></ul><a class="boton" href="https://www.skool.com/amz-house-5008/about">Únete gratis a AMZ House</a><p class="nota-cierre">Gratis · Apúntate ya: abrimos muy pronto</p></section>
 </main>
 <footer><img src="../recursos/logo-amz-house.png" alt="AMZ House" width="120" height="120" loading="lazy"><p class="pie-marca">Mi comunidad para aprender a vender en Amazon, con la IA dentro del método y sin humo.</p><p>© 2026 Richar · AMZ House · Esta página no usa cookies</p><p><a href="../aviso-legal/">Aviso legal</a> · <a href="../politica-de-privacidad/">Privacidad</a> · <a href="../politica-de-cookies/">Cookies</a></p></footer>
 <script>
